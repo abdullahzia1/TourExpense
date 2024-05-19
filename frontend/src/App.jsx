@@ -1,5 +1,7 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Box, Grid, GridItem } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
+import Balance from "./components/Balance";
+import IncomeExpense from "./components/IncomeExpense";
 
 const App = () => {
   return (
@@ -18,7 +20,12 @@ const App = () => {
       <GridItem area="nav">
         <NavBar />
       </GridItem>
-      <GridItem area="main">Main</GridItem>
+      <GridItem area="main">
+        <Box mx="auto" my={6} width="400px">
+          <Balance />
+          <IncomeExpense />
+        </Box>
+      </GridItem>
     </Grid>
   );
 };
