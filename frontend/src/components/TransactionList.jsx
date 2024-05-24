@@ -1,5 +1,13 @@
 /* eslint-disable no-unused-vars */
-import { Button, Heading, ListItem, UnorderedList } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Heading,
+  ListItem,
+  UnorderedList,
+} from "@chakra-ui/react";
+
+import Transaction from "./Transaction";
 
 import { GlobalContext } from "../context/GlobalState";
 import { useContext } from "react";
@@ -11,20 +19,9 @@ const TransactionList = () => {
       <Heading as="h3" size="lg">
         History
       </Heading>
-      <UnorderedList>
+      <UnorderedList style={{ listStyle: "none", padding: "10px" }}>
         {transactions.map((transaction) => (
-          <ListItem key={transaction.id}>
-            {transaction.text} - <span>{transaction.amount}</span>
-            <Button
-              bg="red.500"
-              variant="ghost"
-              color="black"
-              fontSize="lg"
-              size="md"
-            >
-              x
-            </Button>{" "}
-          </ListItem>
+          <Transaction key={transaction.id} transaction={transaction} />
         ))}
       </UnorderedList>
     </>
