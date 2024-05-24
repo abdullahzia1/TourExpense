@@ -1,7 +1,11 @@
 /* eslint-disable react/prop-types */
 import { Box, Button, ListItem, Text, Flex } from "@chakra-ui/react";
+import { GlobalContext } from "../context/GlobalState";
+import { useContext } from "react";
 
 const Transaction = ({ transaction }) => {
+  const { deleteTransaction } = useContext(GlobalContext);
+
   const sign = transaction.amount < 0 ? "-" : "+";
   const color =
     transaction.amount < 0 ? "1px solid #FF0000" : "1px solid #00FF00";
@@ -45,6 +49,7 @@ const Transaction = ({ transaction }) => {
         opacity={0}
         _hover={{ opacity: 1 }}
         transition="opacity 0.3s ease"
+        onClick={() => deleteTransaction(transaction.id)}
       >
         x
       </Button>
